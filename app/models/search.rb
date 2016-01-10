@@ -1,2 +1,3 @@
-class Search < ActiveModel::Model
+class Search
+  include ActiveModel::Model
 end
