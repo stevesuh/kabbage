@@ -1,10 +1,9 @@
-<h1>Search#home</h1>
+<h1>Search Twitter and Wikipedia</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_tag("/search/search", method: "get") do %>
-        <%= label_tag(:q, "Search for:") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search") %>
+        <%= text_field_tag(:q, nil, class: 'form-control') %>
+        <%= submit_tag("Search", class: "btn btn-primary") %>
     <% end %>
   </div>
 </div>
