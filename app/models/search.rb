@@ -1,2 +1,2 @@
-class Search < ActiveModel
+class Search < ActiveModel::Model
 end
