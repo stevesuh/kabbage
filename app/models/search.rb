@@ -1,0 +1,2 @@
+class Search < ActiveModel
+end
