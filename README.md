@@ -13,6 +13,10 @@ served by storing in a more permanent data store like a database since pages and
 are based off don't tend to change once established.  You could have a background job that moves Wikipedia
 results into a table to generally insert and occasionally update out of date entries in the DB.
 
+As an alternative for Wikipedia, you can actually download the entire wikipedia database.  Since the searching
+is just on text this approach would just work fine.  You would then just need to update out of date entries
+on a periodic basis.  Users would just be served from cache and local DB.
+
 For tweets, it might make sense to set the cache invalidation to a much shorter time because most people
 are usually looking for the most recent tweets anyway.  So basically you would have a cache for Twitter results
 and a cache for Wikipedia results with the eviction timeouts being much longer for the Wikipedia cache.
@@ -20,8 +24,8 @@ and a cache for Wikipedia results with the eviction timeouts being much longer f
 ## Usability bottlenecks
 The current implementation calls the APIs from Rails server controller and blocks until the response comes back
 or an error is thrown.  Either case means that the user can be waiting a long time.  To improve responsiveness,
-using a separate Ajax call for each API call could help.  The skeleton of the search results page could be rendered
+using a separate Ajax call for each API call would help.  The skeleton of the search results page could be rendered
 very quickly assuming the Rails server is up.  Then users could start looking at results from Twitter or Wikipedia
 depending on which one returns first.  Also the current design would also potentially block a long time on either
 service being slow to respond even though the other service has already responded since the API calls are made
-serially.  The AJAX approach would avoid that issue.  
+serially.  The AJAX approach would avoid that issue.
