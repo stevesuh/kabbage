@@ -4,6 +4,6 @@ class SearchController < ApplicationController
   end
 
   def search
-    @results = TWITTER_CLIENT.search(params[:q])
+    @tweets = TWITTER_CLIENT.search(params[:q]).take(20).collect { |t| TwitterResult.new(t)}
   end
 end

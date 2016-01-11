@@ -1,4 +1,2 @@
 <h1>Search results</h1>
-<% @results.take(20).collect do |tweet| %>
-    <li><%= "#{tweet.user.screen_name}: #{tweet.text}" %></li>
-<% end %>
+<%= render partial: "shared/tweet", collection: @tweets, as: :tweet %>
