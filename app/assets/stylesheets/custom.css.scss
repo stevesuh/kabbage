@@ -5,6 +5,7 @@
 
 body {
   padding-top: 60px;
+  overflow: hidden;
 }
 
 section {
@@ -43,6 +44,23 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #777;
+}
+
+h3.twitter {
+  color: #55ACEE;
+}
+
+.tweets {
+  border: 1px solid #55ACEE;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.tweet-box {
+  height: 50vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 p {
