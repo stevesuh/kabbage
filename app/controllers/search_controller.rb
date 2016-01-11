@@ -4,6 +4,8 @@ class SearchController < ApplicationController
   end
 
   def search
+    return [], [] if params[:q].empty?
+
     begin
       @tweets = TWITTER_CLIENT.search(params[:q]).take(TWITTER_SEARCH_LIMIT).collect { |t| TwitterResult.new(t)}
     rescue Twitter::Error::ServiceUnavailable => e
