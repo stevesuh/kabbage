@@ -4,3 +4,5 @@ TWITTER_CLIENT = Twitter::REST::Client.new do |config|
   config.access_token        = "32818377-rSRsfXMwQmJurk7qH6Kb5ApJ4vUxAjwVLmDxOFMy9"
   config.access_token_secret = "7bU97WumnI7AnOFDqggjLYd8hfaeqcoK792fGhsD9gFnl"
 end
+
+TWITTER_SEARCH_LIMIT = 100
