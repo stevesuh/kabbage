@@ -7,5 +7,11 @@
         <%= render partial: "shared/tweet", collection: @tweets, as: :tweet %>
       </div>
     </div>
+    <div class="col-md-6">
+      <h3 class="twitter">Wikipedia Results</h3>
+      <div class="tweet-box">
+        <%= render partial: "shared/wiki", collection: @wikis, as: :wiki %>
+      </div>
+    </div>
   </div>
 </div>
