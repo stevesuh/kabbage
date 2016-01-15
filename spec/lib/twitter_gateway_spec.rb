@@ -2,6 +2,14 @@ require 'rails_helper'
 
 describe TwitterGateway do
   describe '.query' do
+    it "returns a list of Twitter results" do
+      results = TwitterGateway.query('bieber')
+      expect(results).not_to be_empty
+      for result in results do
+        expect(result).to be_instance_of(TwitterResult)
+      end
+    end
+
     it "returns an empty array if given a blank query" do
       expect(TwitterGateway.query('')).to be_blank
     end
@@ -13,8 +21,5 @@ describe TwitterGateway do
       expect(TwitterGateway.query('bieber')).to eq([])
     end
 
-    it "returns a list of results" do
-      expect(TwitterGateway.query('bieber')).not_to be_empty
-    end
   end
 end

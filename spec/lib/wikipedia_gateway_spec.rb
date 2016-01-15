@@ -2,6 +2,14 @@ require 'rails_helper'
 
 describe WikipediaGateway do
   describe '.query' do
+    it "returns a list of Wikipedia results" do
+      results = WikipediaGateway.query('bieber')
+      expect(results).not_to be_empty
+      for result in results do
+        expect(result).to be_instance_of(WikipediaResult)
+      end
+    end
+    
     it "returns an empty array if given a blank query" do
       expect(WikipediaGateway.query('')).to be_blank
     end
@@ -11,10 +19,6 @@ describe WikipediaGateway do
       stub_const("WIKI_CLIENT", dbl)
       allow(dbl).to receive(:custom_query).and_raise(MediaWiki::Exception)
       expect(WikipediaGateway.query('bieber')).to eq([])
-    end
-
-    it "returns a list of results" do
-      expect(WikipediaGateway.query('bieber')).not_to be_empty
     end
 
   end
