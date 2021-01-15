@@ -28,4 +28,4 @@ using a separate Ajax call for each API call would help.  The skeleton of the se
 very quickly assuming the Rails server is up.  Then users could start looking at results from Twitter or Wikipedia
 depending on which one returns first.  Also the current design would also potentially block a long time on either
 service being slow to respond even though the other service has already responded since the API calls are made
-serially.  The AJAX approach would avoid that issue.
+serially.  The Ajax approach would avoid that issue.
